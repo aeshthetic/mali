@@ -1,5 +1,7 @@
 # Dixie
-A Bi-Directional Type-Relational Mapper for F#
+Dixie is a  Bi-Directional Type-Relational Mapper for F#. In other words, it enables you to convert F# record types
+to relational database tables and vice versa, while also providing a convenient interface to relational
+databases to use within your code.
 
 ```fsharp
 open System
