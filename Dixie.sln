@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Dixie", "Dixie\Dixie.fsproj", "{DF773233-661A-4F66-8472-54F0E2959C78}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Playground", "Playground\Playground.fsproj", "{EB12C38D-76B5-465A-A22E-06AAE6F345ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF773233-661A-4F66-8472-54F0E2959C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF773233-661A-4F66-8472-54F0E2959C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF773233-661A-4F66-8472-54F0E2959C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF773233-661A-4F66-8472-54F0E2959C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB12C38D-76B5-465A-A22E-06AAE6F345ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB12C38D-76B5-465A-A22E-06AAE6F345ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB12C38D-76B5-465A-A22E-06AAE6F345ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB12C38D-76B5-465A-A22E-06AAE6F345ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFFC1756-DFEA-4F4E-BC8F-D66B67891CAC}
+	EndGlobalSection
+EndGlobal
