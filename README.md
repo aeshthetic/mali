@@ -1,6 +1,34 @@
 # Dixie
 A Bi-Directional Type-Relational Mapper for F#
 
+```fsharp
+open System
+open Dixie.Util
+open Dixie.Util.Attributes
+open Dixie.Util.Generic
+
+type User = 
+    {id: int;
+     name: string;
+     email: string;
+     [<OneToMany>]
+     posts: Post list;}
+and Post =
+    {id: int;
+     content: string;
+     timeStamp: DateTime;
+     [<Ref(Parent="posts")>]
+     poster: User;
+     liked: User list}
+
+[<EntryPoint>]
+let main _ =
+    mapType typeof<User>
+    |> List.map (Table.format)
+    |> List.iter (printfn "%s")
+    0
+```
+
 ## Building
 At this time, Dixie does not use any dependencies besides the .NET Core 2 platform itself.
 Once you [install .NET Core](https://www.microsoft.com/net/download), it should be easy to build and run the project. If you're using
