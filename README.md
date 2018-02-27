@@ -7,4 +7,4 @@ Dixie is _bi-directional_. This means that it supports two "modes" of use. One c
 C#'s Entity Framework calls the first situation a "code-first" approach, and the other a "database-first" approach.
 
 ### What's a "type-relational mapper"?
-Many popular Object Oriented languages have tools within their ecosystem called ORMs. ORM stands for Object-Relational Mapping, and is a technique that converts objects in an OO language to records in a relational database. Type-Relational Mapping is very similar, but maps functional algebraic data types to database tables as opposed to mapping OO classes.
+Many popular Object Oriented languages have tools within their ecosystem called ORMs. ORM stands for Object-Relational Mapping, and is a technique that converts objects in an OO language to records in a relational database. Type-Relational Mapping is very similar, but maps functional record types to database tables as opposed to mapping OO classes.
