@@ -39,7 +39,7 @@ let tryFindAttribute<'T when 'T :> System.Attribute> (prop: Reflection.PropertyI
 // val isRef: System.Reflection.PropertyInfo -> System.Reflection.PropertyInfo -> bool
 // propT: the property with the OneToMany attribute
 // propA: the property which is a reference to propT
-/// Check's whether propA is referencing propT via the Ref attribute's parent member
+/// Check's whether propA is referencing propT
 let isRef (propT: Reflection.PropertyInfo) propA =
     if hasAttribute<RefAttribute> propA then
         match (tryFindAttribute<RefAttribute> propA) with
