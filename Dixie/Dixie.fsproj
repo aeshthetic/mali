@@ -1,13 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <Compile Include="Util\Types.fs" />
-    <Compile Include="Util\Attributes.fs" />
-    <Compile Include="Util\Generic.fs" />
+    <Compile Include="Util/Types.fs" />
+    <Compile Include="Util/Attributes.fs" />
+    <Compile Include="Util/Generic.fs" />
+    <Compile Include="Util/Table.fs" />
   </ItemGroup>
-
 </Project>

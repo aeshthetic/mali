@@ -1,7 +1,7 @@
 ﻿open System
 open Dixie.Util.Attributes
 open Dixie.Util.Generic
-open Dixie.Util.Types
+open Dixie.Util
 
 // Users
 // | id | name | email
@@ -25,23 +25,12 @@ and Post =
 // Liked
 // | id | ref user | ref post
 
-// val formatTable: Table -> string
-// Formats a table for pretty printing
-// table: the table to be formatted
-let formatTable (table: Table) =
-    let schema =
-        table.schema
-        |> Map.toSeq
-        |> Seq.map (fun (cName, cType) -> sprintf "%s: %s" cName cType)
-        |> String.concat " | "
-    sprintf "%s:\n%s" table.name schema
-
 [<EntryPoint>]
 // val main: string [] -> int
 // prints out a formatted table for the User record type defined above
 let main _ =
     mapType typeof<User>
-    |> List.map formatTable
+    |> List.map (Table.format)
     |> List.iter (printfn "%s")
 
     Console.ReadLine()
