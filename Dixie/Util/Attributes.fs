@@ -2,12 +2,12 @@ module Dixie.Util.Attributes
 open System
 
 // type OneToManyAttribute
-// Attribute type to represent OTMs in record type members
+/// Attribute type to represent OTMs in record type members
 type OneToManyAttribute() = inherit System.Attribute()
 
 // type RefAttribute
-// Attribute type representing record type members that refer to another record type
-// often for the purposes of modelling certain relations
+/// Attribute type representing record type members that refer to another record type
+/// often for the purposes of modelling certain relations
 type RefAttribute() =
     inherit System.Attribute()
     member val Parent: string = "" with get, set
@@ -15,18 +15,18 @@ type RefAttribute() =
 // val hasAttribute<'T>: System.Reflection.PropertyInfo -> bool
 // 'T: the attribute being checked for
 // prop: the property being checked
-// Checks whether a property has a certain attribute
+/// Checks whether a property has a certain attribute
 let hasAttribute<'T> (prop: Reflection.PropertyInfo) = Attribute.IsDefined(prop, typeof<'T>)
 
 // val removeAttribute<'T>: System.Reflection.PropertyInfo [] -> System.Reflection.PropertyInfo []
 // 'T: the attribute of which properties having it are to be removed
-// Returns a property array where properties with attribute 'T have been removed
+/// Returns a property array where properties with attribute 'T have been removed
 let removeAttribute<'T> = Array.filter (fun it -> not <| hasAttribute<'T> it)
 
 // val tryFindAttribute<System.Attribute>: System.Reflection.PropertyInfo -> #Attribute option
 // 'T: the attribute to search for
 // prop: the property of which an attribute is being found
-// Attempts to find an attribute among a property, returns None if not found
+/// Attempts to find an attribute among a property, returns None if not found
 let tryFindAttribute<'T when 'T :> System.Attribute> (prop: Reflection.PropertyInfo) =
     prop.GetCustomAttributes(typeof<'T>, true)
     |> Array.tryHead
@@ -39,7 +39,7 @@ let tryFindAttribute<'T when 'T :> System.Attribute> (prop: Reflection.PropertyI
 // val isRef: System.Reflection.PropertyInfo -> System.Reflection.PropertyInfo -> bool
 // propT: the property with the OneToMany attribute
 // propA: the property which is a reference to propT
-// Check's whether propA is referencing propT via the Ref attribute's parent member
+/// Check's whether propA is referencing propT via the Ref attribute's parent member
 let isRef (propT: Reflection.PropertyInfo) propA =
     if hasAttribute<RefAttribute> propA then
         match (tryFindAttribute<RefAttribute> propA) with
