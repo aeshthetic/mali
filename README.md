@@ -23,7 +23,8 @@ Code quality is a priority, but my code is not perfect nor do I expect yours to 
 * Try to comply with section 3 of [the F# Component Design Guidelines](http://fsharp.org/specs/component-design-guidelines/#3-guidelines-for-f-facing-libraries)
 * If you can test your own code, great! If not, it might get pushed to the testing branch before the master branch until it's been effectively tested
 
-Note about branching: It's a personal policy of mine to never have more than one dev working on a branch. This means that if you're on the Dev branch implementing a 
+#### Note about branching
+It's a personal policy of mine to never have more than one dev working on a branch. This means that if you're on the Dev branch implementing a 
 certain feature, you should make a branch for it. If you're implementing the feature with a friend then you should split the work among yourselves and create separate
 branches from the feature branch. I understand that this can become annoying, especially if you forget, but hopefully the pay-off will become obvious with time.
 
