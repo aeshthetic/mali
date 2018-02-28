@@ -19,8 +19,7 @@ and Post =
      content: string;
      timeStamp: DateTime;
      [<Ref(Parent="posts")>]
-     poster: User;
-     liked: User list}
+     poster: User;}
 
 // Liked
 // | id | ref user | ref post
