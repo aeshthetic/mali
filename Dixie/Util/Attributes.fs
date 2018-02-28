@@ -34,7 +34,6 @@ let tryFindAttribute<'T when 'T :> System.Attribute> (prop: Reflection.PropertyI
         match head with
         | Some hd -> Some (hd :?> 'T)
         | None -> None)
-    
 
 // val isRef: System.Reflection.PropertyInfo -> System.Reflection.PropertyInfo -> bool
 // propT: the property with the OneToMany attribute
