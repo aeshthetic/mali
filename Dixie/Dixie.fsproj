@@ -7,5 +7,6 @@
     <Compile Include="Util/Attributes.fs" />
     <Compile Include="Util/Generic.fs" />
     <Compile Include="Util/Table.fs" />
+    <Compile Include="Mapping.fs" />
   </ItemGroup>
 </Project>
