@@ -1,8 +1,7 @@
 ﻿open System
-open Dixie.Util.Attributes
-open Dixie.Util.Generic
 open Dixie.Util
-
+open Dixie.Util.Attributes
+open Dixie.Mapping
 // Users
 // | id | name | email
 type User = 
@@ -28,7 +27,7 @@ and Post =
 // val main: string [] -> int
 // prints out a formatted table for the User record type defined above
 let main _ =
-    mapType typeof<User>
+    fromType typeof<User>
     |> List.map (Table.format)
     |> List.iter (printfn "%s")
 
