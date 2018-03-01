@@ -3,7 +3,7 @@ open Dixie.Util.Types
 
 // val format: Table -> string
 // table: the table to be formatted
-// Formats a table for pretty printing
+/// Formats a table for pretty printing
 let format (table: Table) =
     let schema =
         table.schema
