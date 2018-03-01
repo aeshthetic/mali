@@ -19,8 +19,8 @@ let getTypes =
     removeAttribute<OneToManyAttribute>
     >> Array.map (fun it ->
         match (tryFindAttribute<RefAttribute> it) with
-        | Some attr -> sprintf "Int32 %s.%s ref" it.PropertyType.Name attr.Parent 
-        | None -> it.PropertyType |> typeName)
+        | Some attr -> Ref (it.PropertyType, it.PropertyType.GetProperty(attr.Parent))
+        | None -> it.PropertyType.Name |> Util.DbType.fromName)
 
 // val getNames: PropertyInfo [] -> string []
 /// Returns an array of strings representing the given names

@@ -8,6 +8,6 @@ let format (table: Table) =
     let schema =
         table.schema
         |> Map.toSeq
-        |> Seq.map (fun (cName, cType) -> sprintf "%s: %s" cName cType)
+        |> Seq.map (fun (cName, cType) -> sprintf "%s: %s" cName (DbType.stringOf cType))
         |> String.concat " | "
     sprintf "%s:\n%s" table.name schema
