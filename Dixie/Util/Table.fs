@@ -1,5 +1,6 @@
 module Dixie.Util.Table
 open Dixie.Util.Types
+open Dixie.Util
 
 // val format: Table -> string
 // table: the table to be formatted
@@ -7,7 +8,6 @@ open Dixie.Util.Types
 let format (table: Table) =
     let schema =
         table.schema
-        |> Map.toSeq
-        |> Seq.map (fun (cName, cType) -> sprintf "%s: %s" cName (DbType.stringOf cType))
-        |> String.concat " | "
+        |> List.map (Column.stringOf PostgreSQL)
+        |> String.concat "\n"
     sprintf "%s:\n%s" table.name schema
