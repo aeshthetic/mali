@@ -1,12 +1,14 @@
 ﻿open System
-open Dixie.Util
-open Dixie.Util.Attributes
+open Dixie.Util.Types
 open Dixie.Mapping
 // Users
 // | id | name | email
-type User = 
-    {id: int;
+type Member = 
+    {[<PrimaryKey>]
+     id: int;
      name: string;
+     [<Unique>]
+     [<NonNullable>]
      email: string;
      [<OneToMany>]
      posts: Post list;}
@@ -14,11 +16,12 @@ type User =
 // Posts
 // | id | content | timeStamp | ref user
 and Post =
-    {id: int;
+    {[<PrimaryKey>]
+     id: int;
      content: string;
      timeStamp: DateTime;
      [<Ref(Parent="posts")>]
-     poster: User;}
+     poster: Member;}
 
 // Liked
 // | id | ref user | ref post
@@ -27,8 +30,8 @@ and Post =
 // val main: string [] -> int
 // prints out a formatted table for the User record type defined above
 let main _ =
-    fromType typeof<User>
-    |> List.map (Table.format)
+    fromType typeof<Member>
+    |> List.map (createTable)
     |> List.iter (printfn "%s")
 
     Console.ReadLine()
