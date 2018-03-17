@@ -4,8 +4,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Util/Types.fs" />
-    <Compile Include="Util/DbType.fs" />
     <Compile Include="Util/Attributes.fs" />
+    <Compile Include="Util/DbType.fs" />
+    <Compile Include="Util/Column.fs" />
     <Compile Include="Util/Generic.fs" />
     <Compile Include="Util/Table.fs" />
     <Compile Include="Mapping.fs" />
