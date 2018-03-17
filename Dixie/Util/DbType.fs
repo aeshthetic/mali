@@ -1,5 +1,7 @@
 module Dixie.Util.DbType
+open System
 open Dixie.Util.Types
+open Dixie.Util
 
 // val fromName: string -> DbType
 // _: string to convert to DbType
@@ -15,6 +17,7 @@ let fromName = function
     | "Boolean" -> Bool
     | "Char" -> DbType.Char
     | "Double" -> Float
+    | "Time" -> Time
     | _ -> Int
 
 // val stringOf: DbType -> string
@@ -34,4 +37,33 @@ let stringOf dbType =
             match dbType with
             | Ref (t, p) -> sprintf "Int32 %s.%s Ref" t.Name p.Name
             | _ -> "Int32")
-    
+
+// val typeOf: DbType -> Type
+// dbType: the DbType being converted to a System.Type
+/// Converts a DbType value to a System.Type
+let typeOf dbType =
+    dbType
+    |> stringOf
+    |> sprintf ("System.%s") 
+    |> Type.GetType
+
+// val postgres: DbType -> string
+// _: the DbType being converted to a PostgreSQL data-type
+/// Converts a DbType value into a PostgreSQL data-type in string form
+let postgres = function
+    | Int -> "INT"
+    | Float -> "REAL"
+    | String -> "TEXT"
+    | Bool -> "BOOL"
+    | Char -> "CHAR(1)"
+    | Date -> "TIMESTAMP"
+    | Time -> "TIME"
+    | Ref (t, _) -> sprintf "INT REFERENCES %s(id)" t.Name
+
+// val ofProperty: System.Reflection.PropertyInfo -> DbType
+// prop: the property of which a DbType is being generated
+/// Returns a DbType corresponding to a property
+let ofProperty prop =
+    match (Attributes.tryFindAttribute<RefAttribute> prop) with
+    | Some attr -> Ref (prop.PropertyType, prop.PropertyType.GetProperty(attr.Parent))
+    | None -> fromName (prop.PropertyType.Name)
