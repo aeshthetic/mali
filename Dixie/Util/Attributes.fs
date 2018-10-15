@@ -1,16 +1,7 @@
 module Dixie.Util.Attributes
 open System
-
-// type OneToManyAttribute
-/// Attribute type to represent OTMs in record type members
-type OneToManyAttribute() = inherit System.Attribute()
-
-// type RefAttribute
-/// Attribute type representing record type members that refer to another record type
-/// often for the purposes of modelling certain relations
-type RefAttribute() =
-    inherit System.Attribute()
-    member val Parent: string = "" with get, set
+open Types
+   
 
 // val hasAttribute<'T>: System.Reflection.PropertyInfo -> bool
 // 'T: the attribute being checked for
@@ -34,7 +25,6 @@ let tryFindAttribute<'T when 'T :> System.Attribute> (prop: Reflection.PropertyI
         match head with
         | Some hd -> Some (hd :?> 'T)
         | None -> None)
-    
 
 // val isRef: System.Reflection.PropertyInfo -> System.Reflection.PropertyInfo -> bool
 // propT: the property with the OneToMany attribute
@@ -58,3 +48,31 @@ let hasRef<'A> propT =
         |> Array.exists (isRef propT)
     else
         false
+
+
+// val tryCastAttr: obj -> Attribute option
+// object: potential attribute
+/// Attempts to cast an arbitrary object to an Attribute.
+/// Returns None on failure
+let tryCastAttr (object: obj) =
+    try
+        Some (object :?> System.Attribute)
+    with
+        | :? InvalidCastException -> None
+
+// val getAttributes: System.Reflection.PropertyInfo -> Attribute []
+// prop: property to get attributes for
+/// Returns an array of all valid attributes of a property
+let getAttributes (prop: System.Reflection.PropertyInfo) =
+    prop.GetCustomAttributes(false)
+    |> Array.map tryCastAttr
+    |> Array.choose id
+
+// val getConstraints: System.Reflection.PropertyInfo -> Constraint []
+// prop: property to get constraints for
+/// Returns an array of all Constraint attributes
+let getConstraints (prop: System.Reflection.PropertyInfo) =
+    prop
+    |> getAttributes
+    |> Array.filter (fun it -> it :? Constraint)
+    |> Array.map (fun it -> it :?> Constraint)

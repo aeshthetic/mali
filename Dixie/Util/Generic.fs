@@ -1,7 +1,5 @@
 ﻿module Dixie.Util.Generic
 open System.Reflection
-open Dixie.Util.Attributes
-open Dixie.Util.Types
 
 // val typeName: Type -> string
 // t: the type to generate a name for
@@ -41,44 +39,3 @@ let listPropType (prop: PropertyInfo) =
         .PropertyType
         .GetGenericArguments()
         |> Array.head
-
-// val mapType: Type -> Table list
-// t: the record type to map
-/// Generates a list of Tables from a record type
-/// Note: currently dysfunctional. This should essentially "map" a record type to
-/// a relational table schema that can be used to generate real RDB tables. This is
-/// currently a goal that has yet to be reached.
-let rec mapType (t: System.Type) =
-    let props = t.GetProperties()
-
-    let oneToManys = 
-        props
-        |> Array.filter hasAttribute<OneToManyAttribute>
-        |> Array.toList
-
-    let types =
-        props
-        |> removeAttribute<OneToManyAttribute>
-        |> Array.map (fun it -> it.PropertyType |> typeName )
-
-    let names =
-        props
-        |> removeAttribute<OneToManyAttribute>
-        |> Array.map (fun it -> it.Name)
-
-    let tables = [{name = t.Name; schema = Map.ofArray <| Array.zip names types}]
-
-    (* This is a result of the nature of One to Many relationships
-     in that they require a table containing the "many" objects
-     to have a column referencing the "one" object. Therefore
-     a table must be created for each type of OTM list *)
-    let mapOneToMany = listPropType >> mapType
-
-    match oneToManys with
-    | [] -> tables
-    | [x] -> (mapOneToMany x) @ tables
-    | hd :: tl ->
-        tl
-        |> List.map mapOneToMany
-        |> List.reduce (@)
-        |> ((@) <| mapOneToMany hd)
