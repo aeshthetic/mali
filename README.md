@@ -6,29 +6,35 @@ databases to use within your code.
 
 ```fsharp
 open System
-open Mali.Util
-open Mali.Util.Attributes
-open Mali.Util.Generic
+open Mali.Util.Types
+open Mali.Mapping
 
-type User =
-    {id: int;
+type Member = 
+    {[<PrimaryKey>]
+     id: int;
      name: string;
+     [<Unique>]
+     [<NonNullable>]
      email: string;
      [<OneToMany>]
      posts: Post list;}
+
 and Post =
-    {id: int;
+    {[<PrimaryKey>]
+     id: int;
      content: string;
      timeStamp: DateTime;
      [<Ref(Parent="posts")>]
-     poster: User;
-     liked: User list}
+     poster: Member;}
 
 [<EntryPoint>]
 let main _ =
-    mapType typeof<User>
-    |> List.map (Table.format)
+    fromType typeof<Member>
+    |> List.map (createTable)
     |> List.iter (printfn "%s")
+
+    Console.ReadLine()
+    |> ignore
     0
 ```
 
@@ -42,10 +48,8 @@ Windows and Visual Studio, you should have the .NET Core tools installed along w
 ```bash
 $ cd Playground
 $ dotnet run
-Post:
-content: String | id: Int32 | liked: User FSharpList | poster: User | timeStamp: DateTime
-User:
-email: String | id: Int32 | name: String
+CREATE TABLE Post (id INT PRIMARY KEY, content TEXT , timeStamp TIMESTAMP , poster INT REFERENCES Member(id) )
+CREATE TABLE Member (id INT PRIMARY KEY, name TEXT , email TEXT UNIQUE NOT NULL)
 ```
 
 ## Contributing

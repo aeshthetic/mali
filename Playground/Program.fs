@@ -1,6 +1,7 @@
 ﻿open System
 open Mali.Util.Types
 open Mali.Mapping
+
 // Users
 // | id | name | email
 type Member = 
