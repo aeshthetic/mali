@@ -1,8 +1,8 @@
-﻿module Dixie.Mapping
-open Dixie.Util.Attributes
-open Dixie.Util.Generic
-open Dixie.Util.Types
-open Dixie.Util
+﻿module Mali.Mapping
+open Mali.Util.Attributes
+open Mali.Util.Generic
+open Mali.Util.Types
+open Mali.Util
 
 // val getOneToManys: PropertyInfo[] -> PropertyInfo lista
 /// Returns a list of all fields of a record type that have the

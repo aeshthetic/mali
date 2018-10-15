@@ -1,6 +1,6 @@
 ﻿open System
-open Dixie.Util.Types
-open Dixie.Mapping
+open Mali.Util.Types
+open Mali.Mapping
 // Users
 // | id | name | email
 type Member = 

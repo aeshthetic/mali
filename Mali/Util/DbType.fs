@@ -1,7 +1,7 @@
-module Dixie.Util.DbType
+module Mali.Util.DbType
 open System
-open Dixie.Util.Types
-open Dixie.Util
+open Mali.Util.Types
+open Mali.Util
 
 // val fromName: string -> DbType
 // _: string to convert to DbType

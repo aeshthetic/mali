@@ -1,14 +1,14 @@
-# Dixie
+# Mali
 
-Dixie is a  Bi-Directional Type-Relational Mapper for F#. In other words, it enables you to convert F# record types
+Mali is a  Bi-Directional Type-Relational Mapper for F#. In other words, it enables you to convert F# record types
 to relational database tables and vice versa, while also providing a convenient interface to relational
 databases to use within your code.
 
 ```fsharp
 open System
-open Dixie.Util
-open Dixie.Util.Attributes
-open Dixie.Util.Generic
+open Mali.Util
+open Mali.Util.Attributes
+open Mali.Util.Generic
 
 type User =
     {id: int;
@@ -34,9 +34,9 @@ let main _ =
 
 ## Building
 
-At this time, Dixie does not use any dependencies besides the .NET Core 2 platform itself.
+At this time, Mali does not use any dependencies besides the .NET Core 2 platform itself.
 Once you [install .NET Core](https://www.microsoft.com/net/download), it should be easy to build and run the project. If you're using
-Windows and Visual Studio, you should have the .NET Core tools installed along with Visual F#. Meanwhile if you're building Dixie on any other platform
+Windows and Visual Studio, you should have the .NET Core tools installed along with Visual F#. Meanwhile if you're building Mali on any other platform
 (or using an editor on Windows that isn't Visual Studio), just ensure that F# and the .NET Core SDK are installed. Once you've done so, you can run the existing demo with
 
 ```bash
@@ -50,8 +50,8 @@ email: String | id: Int32 | name: String
 
 ## Contributing
 
-Thank you so much for contributing to Dixie! While pull requests are welcome and encouraged, there are several other ways in which
-you can contribute to Dixie's development, namely by opening or commenting on issues in order to:
+Thank you so much for contributing to Mali! While pull requests are welcome and encouraged, there are several other ways in which
+you can contribute to Mali's development, namely by opening or commenting on issues in order to:
 
 * Request features
 * Report bugs
@@ -68,7 +68,7 @@ Code quality is a priority, but my code is not perfect nor do I expect yours to 
 
 ### What does "bi-directional" mean?
 
-Dixie is _bi-directional_. This means that it supports two "modes" of use. One covers the situation in which the user has modelled their data in native F# types and wants to map these types to a relational database. The other covers the situation in which the user already has a relational database set up with their data modelled the way they'd like it to be, and wants to map these tables to native F# types.
+Mali is _bi-directional_. This means that it supports two "modes" of use. One covers the situation in which the user has modelled their data in native F# types and wants to map these types to a relational database. The other covers the situation in which the user already has a relational database set up with their data modelled the way they'd like it to be, and wants to map these tables to native F# types.
 
 C#'s Entity Framework calls the first situation a "code-first" approach, and the other a "database-first" approach.
 

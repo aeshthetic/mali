@@ -1,4 +1,4 @@
-﻿module Dixie.Util.Types
+﻿module Mali.Util.Types
 
 [<AbstractClass>]
 type Constraint() =

@@ -1,5 +1,5 @@
-module Dixie.Util.Column
-open Dixie.Util.Types
+module Mali.Util.Column
+open Mali.Util.Types
 
 // val stringOf: DBMS -> Column -> string
 // dbms: the DBMS of the connection for which the string representation should be formatted
