@@ -1,6 +1,6 @@
 ## Contributing
-Thank you so much for contributing to Dixie! While pull requests are welcome and encouraged, there are several other ways in which
-you can contribute to Dixie's development, namely by opening or commenting on issues in order to:
+Thank you so much for contributing to Mali! While pull requests are welcome and encouraged, there are several other ways in which
+you can contribute to Mali's development, namely by opening or commenting on issues in order to:
 * Request features
 * Report bugs
 * Give feedback regarding how an issue is being handled

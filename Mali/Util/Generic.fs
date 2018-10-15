@@ -1,4 +1,4 @@
-﻿module Dixie.Util.Generic
+﻿module Mali.Util.Generic
 open System.Reflection
 
 // val typeName: Type -> string

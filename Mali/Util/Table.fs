@@ -1,6 +1,6 @@
-module Dixie.Util.Table
-open Dixie.Util.Types
-open Dixie.Util
+module Mali.Util.Table
+open Mali.Util.Types
+open Mali.Util
 
 // val format: Table -> string
 // table: the table to be formatted

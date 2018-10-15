@@ -1,4 +1,4 @@
-module Dixie.Util.Attributes
+module Mali.Util.Attributes
 open System
 open Types
    
