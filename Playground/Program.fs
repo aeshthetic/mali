@@ -1,5 +1,5 @@
 ﻿open System
-open Mali.Util.Types
+open Mali.Base.Types
 open Mali.Mapping
 
 // Users

@@ -1,8 +1,8 @@
 ﻿module Mali.Mapping
-open Mali.Util.Attributes
-open Mali.Util.Generic
-open Mali.Util.Types
-open Mali.Util
+open Mali.Base.Attributes
+open Mali.Base.Util
+open Mali.Base.Types
+open Mali.Base
 
 // val getOneToManys: PropertyInfo[] -> PropertyInfo lista
 /// Returns a list of all fields of a record type that have the
@@ -17,7 +17,7 @@ let getOneToManys =
 let getType prop =
     match (tryFindAttribute<RefAttribute> prop) with
     | Some attr -> Ref (prop.PropertyType, prop.PropertyType.GetProperty(attr.Parent))
-    | None -> prop.PropertyType.Name |> Util.DbType.fromName
+    | None -> prop.PropertyType.Name |> Base.DbType.fromName
 
 // val getNames: PropertyInfo [] -> string []
 /// Returns an array of strings representing the given names
@@ -46,9 +46,6 @@ let getColumn (prop: System.Reflection.PropertyInfo) =
 // val mapType: Type -> Table list
 // t: the record type to map
 /// Generates a list of Tables from a record type
-/// Note: currently dysfunctional. This should essentially "map" a record type to
-/// a relational table schema that can be used to generate real RDB tables. This is
-/// currently a goal that has yet to be reached.
 let rec fromType (t: System.Type) =
     let oneToManys =
         getOneToManys (t.GetProperties())

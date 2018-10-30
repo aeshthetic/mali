@@ -1,7 +1,7 @@
-module Mali.Util.DbType
+module Mali.Base.DbType
 open System
-open Mali.Util.Types
-open Mali.Util
+open Mali.Base.Types
+open Mali.Base
 
 // val fromName: string -> DbType
 // _: string to convert to DbType
@@ -13,7 +13,7 @@ open Mali.Util
 let fromName = function
     | "Int32" -> Int
     | "String" -> DbType.String
-    | "DateTime" -> Date
+    | "DateTime" -> DateTime
     | "Boolean" -> Bool
     | "Char" -> DbType.Char
     | "Double" -> Float
@@ -56,7 +56,7 @@ let postgres = function
     | String -> "TEXT"
     | Bool -> "BOOL"
     | Char -> "CHAR(1)"
-    | Date -> "TIMESTAMP"
+    | DateTime -> "TIMESTAMP"
     | Time -> "TIME"
     | Ref (t, _) -> sprintf "INT REFERENCES %s(id)" t.Name
 

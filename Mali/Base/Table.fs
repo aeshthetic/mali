@@ -1,6 +1,6 @@
-module Mali.Util.Table
-open Mali.Util.Types
-open Mali.Util
+module Mali.Base.Table
+open Mali.Base.Types
+open Mali.Base
 
 // val format: Table -> string
 // table: the table to be formatted

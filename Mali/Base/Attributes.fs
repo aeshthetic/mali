@@ -1,4 +1,4 @@
-module Mali.Util.Attributes
+module Mali.Base.Attributes
 open System
 open Types
    

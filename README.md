@@ -6,7 +6,7 @@ databases to use within your code.
 
 ```fsharp
 open System
-open Mali.Util.Types
+open Mali.Base.Types
 open Mali.Mapping
 
 type Member = 

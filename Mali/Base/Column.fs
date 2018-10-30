@@ -1,5 +1,5 @@
-module Mali.Util.Column
-open Mali.Util.Types
+module Mali.Base.Column
+open Mali.Base.Types
 
 // val stringOf: DBMS -> Column -> string
 // dbms: the DBMS of the connection for which the string representation should be formatted

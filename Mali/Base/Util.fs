@@ -1,4 +1,4 @@
-﻿module Mali.Util.Generic
+﻿module Mali.Base.Util
 open System.Reflection
 
 // val typeName: Type -> string

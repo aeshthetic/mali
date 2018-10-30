@@ -1,4 +1,4 @@
-﻿module Mali.Util.Types
+﻿module Mali.Base.Types
 
 [<AbstractClass>]
 type Constraint() =
@@ -39,8 +39,8 @@ type DbType =
     | String
     | Bool
     | Char
-    | Date
     | Time
+    | DateTime
     | Ref of (System.Type * System.Reflection.PropertyInfo)
 
 type Column = {name: string; dataType: DbType; constraints: Constraint []}
